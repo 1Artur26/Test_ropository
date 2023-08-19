@@ -5,7 +5,7 @@ import random
 WORDS = ['apple','banana','lemon','kiwi','orange','pineapple']
 gueses_word = WORDS[random.randint(0,5)]
 trying_to_guess = int(input("How many attempts do you need to guess? - "))
-GUESSES = 1
+GUESSES = 0
 words_for_show = []
 while GUESSES <= trying_to_guess:
     LIST_COUNTER = 0
@@ -48,6 +48,7 @@ while GUESSES <= trying_to_guess:
                     break
                 else:
                     print("You lose, Try again")
+                    GUESSES += 1
         if len(user_word) == 1:
             if user_word in gueses_word:
                 for later in gueses_word:
@@ -68,9 +69,5 @@ while GUESSES <= trying_to_guess:
                 else:
                     print(''.join(words_for_show))
                     print("You lose, Try again")
+                    GUESSES += 1
 
-    if GUESSES == trying_to_guess:
-        print("You lose!!!!")
-        break
-    else:
-        GUESSES += 1
